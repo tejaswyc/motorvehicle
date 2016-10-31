@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+    @Scripts.Render("~/bundles/jquery")
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GeneralUser</title>
+    <style>
+        .title{
+            background-color:skyblue;
+            
+        }
+        .buttons{
+            text-align:center;
+            text-decoration:none!important;
+        }
+        .hide{
+            display: none; 
+            visibility: hidden;
+        }
+       
+    </style>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+</head>
+<body style="background-color:lightgray">
+    <div class="hide">
+        <script type="text/javascript">
+      function ClearHistory()
+      {
+          var Backlen = history.length;
+          history.go(-Backlen);
+      }
+
+    </script>
+    </div>
+    
+    <div class="title">
+       
+        <p style="font-family:'Comic Sans MS';font-size:40px">MVR System</p>
+        <p style="text-align:right">Welcome, @Session["Fname"] @Session["Lname"]</p>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                
+                <div class="navbar-collapse collapse">
+                    <div class="buttons">
+                        <ul>
+
+                            @Html.ActionLink("Home", "Home", "User") &#160 &#160 &#160 &#160
+                            @Html.ActionLink("New Registration", "AddRegistration", "User") &#160 &#160 &#160 &#160
+                            @Html.ActionLink("Log Out", "Logout", "LoginUser")
+                            
+
+                            </ul>
+</div>
+                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @RenderBody()
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@model Model.ViewAllListViewModel
+@{
+    ViewBag.Title = "GetDetails";
+    Layout = "~/Views/Shared/GeneralUser.cshtml";
+}
+<p1 style="font-size:20px;color:firebrick">Registration Details:</p1>
+ @{int Vid = Convert.ToInt32(@Session["id"]);}
+<div style="text-align:center">
+    <button>
+        @Html.ActionLink("Edit Details", "RegistrationEditing", "User", new { id = Vid }, new { name = Vid })
+
+    </button>
+</div>
+<div style="font-size:20px">
+    <ul>
+       
+        <li>Vehicle Number:@Model.VehicleNumber</li>
+        <li>Vehicle Name:  @Model.VehicleName</li>
+        <li>Owner Name:    @Model.OwnerName</li>
+        <li>Address:       @Model.Address</li>
+        <li>Country:       @Model.Country</li>
+        <li>Chasis Number: @Model.ChasisNumber</li>
+        <li>Vehicle Colour:@Model.Colour</li>
+        <li>Vehicle Type:  @Model.VehicleType</li>
+        <li>Registration Date:@Model.Date</li>
+    </ul>
+</div>
+

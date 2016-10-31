@@ -1,0 +1,13 @@
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\DataLayer.dll
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\Models.dll
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\DataLayer.pdb
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\Models.pdb
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\System.Web.Mvc.dll
+C:\Development\MVDApplication\MyFirstProject\MotorVehicleRegistration\BusinessLayer\bin\Debug\System.Web.Mvc.xml

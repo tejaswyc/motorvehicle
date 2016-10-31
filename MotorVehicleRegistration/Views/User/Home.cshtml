@@ -1,0 +1,139 @@
+﻿@model Model.ListViewAllViewModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/GeneralUser.cshtml";
+}
+
+<p style="color:red;font-size:15px">@ViewBag.message</p>
+@{string vehicleNumber = Convert.ToString(@Session["vehicleNumber"]);}
+<style>
+     .a {
+    display: block;
+    height: 20px;
+    width: auto;
+    border: 1px solid #000;
+}
+</style>
+<script language="javascript">
+    $(document).ready(function () {
+        $(".delete").click(function () {
+            //return confirm('Are you sure you want to delete' + $(this).data("id"));
+            var check = confirm('Are you sure want to delete ' + $(this).data("id"));
+            if (check == true) {
+                //var request = $.ajax({
+                $.ajax({
+                    type: 'POST',
+                    url: './DeleteRegistration',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ id: item.VehicleId }),
+                    dataType: 'json',
+                    success:success
+                       
+
+                        
+                    
+                });
+                function success(response) {
+                    debugger;
+                    if (response == true) {
+                        alert("User has been added successfully.");
+                        window.location.reload();
+                    }
+                }
+                //request.done(function (msg) {
+                //request.done({
+                //alert(msg);
+                //if(request.done)
+                //{
+                //    alert("Deleted!");
+                //    //swal({
+                //    title: "Deleted!",
+                //    text: "The vehicle registration "+item.VehicleId+" is deleted.",
+                //    imageUrl: 'thumbs-up.jpg'
+                //});
+
+                //};
+
+
+                //;error(function (jqXHR, textStatus, errorThrown) {
+                //    alert("Request failed: " + jqXHR.responseStart + "-" + textStatus + "-" + errorThrown);
+                //});
+
+            }
+            return false;
+        });
+    });
+   
+
+</script>
+<div style="border-bottom:solid">
+    <p1 style="font-size:20px">View All Registrations:</p1>                                 
+    <div style="text-align:right">
+        <button>
+            @Html.ActionLink("Add New", "AddRegistration","User")
+        </button>
+    </div>
+</div>
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm("Filter", "User", FormMethod.Post))
+{
+   <form>
+        <input type="submit" value="Filter" style="background-color:dodgerblue"  />
+        <div style="overflow: hidden; padding-right:1em;float:left">
+            @Html.TextBoxFor(m=>m.FilterText ,new { placeholder = "Owner Name/Date" })
+        </div>
+    </form>
+}
+<br />
+<br />
+
+<table border="1">
+
+    <tr style="background-color:dodgerblue">
+        <th>
+            Vehicle ID
+        </th>
+        <th>
+            Vehicle Number
+        </th>
+        <th>
+            Owner Name
+        </th>
+        <th>
+            Date
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.collections)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.VehicleId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.VehicleNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.OwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Date)
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Edit", "RegistrationEditing", "User", new { id = item.VehicleId },new { onclick = "disableElements();" }) |
+                @Html.ActionLink("Details", "GetDetails", "User", new { id = item.VehicleId }, new { name = item.VehicleId }) |
+                @Html.ActionLink("Delete", "DeleteRegistration", "User",
+                  new { id = item.VehicleId },
+                  new { @class = "delete",
+                      data_id =  item.VehicleNumber })
+            </td>
+        </tr>
+    }
+</table>

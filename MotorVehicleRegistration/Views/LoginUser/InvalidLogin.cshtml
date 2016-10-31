@@ -1,0 +1,71 @@
+﻿@model Model.LoginDetail
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginPage</title>
+    <style>
+        .form {
+            background-color: lightcyan;
+            text-align: center;
+            margin-left: 300px;
+            margin-right: 300px;
+            font-size: 20px;
+            border: thick;
+            outline-style: auto;
+            outline-color: blue;
+        }
+        .text
+        {
+            background-color:salmon;
+             margin-left: 300px;
+            margin-right: 300px;
+             outline-color: red;
+
+        }
+    </style>
+</head>
+<body style="background-color:lightblue">
+
+
+    <h1 style="color:blue;text-align:center;margin-top:100px">
+        <u>Motor Vehicle Registration</u><br />
+        System
+    </h1>
+    <div class="text">
+    <p>@ViewBag.message</p>
+    </div>
+    <div class="form">
+        <br />
+        <br />
+        <br />
+        <p>Login</p>
+
+        <form>
+
+
+            @using (Html.BeginForm("LoginDetails", "Login", FormMethod.Post))
+            {
+
+                <br />
+                @Html.TextBoxFor(m => m.Username, new { placeholder = "Username" })<br />
+                <br />
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })<br />
+                <br />
+
+                    <input type="submit" value="Login" />
+            }
+        </form>
+        <br />
+        <br />
+
+    </div>
+
+
+</body>
+</html>

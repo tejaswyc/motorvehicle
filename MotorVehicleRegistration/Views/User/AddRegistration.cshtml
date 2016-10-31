@@ -1,0 +1,146 @@
+﻿@model Model.CompleteDetailsViewModel
+@{
+    ViewBag.Title = "AddRegistration";
+    Layout = "~/Views/Shared/GeneralUser.cshtml";
+}
+<head>
+    <script>
+
+function check() {
+    if (document.getElementById("isexisting").checked == true) {
+        document.getElementById("three").disabled = true;
+        document.getElementById("four").disabled = true;
+        document.getElementById("five").disabled = true;
+        document.getElementById("six").disabled = false;
+    
+    }
+    else {
+        document.getElementById("three").disabled = false;
+        document.getElementById("four").disabled = false;
+        document.getElementById("five").disabled = false;
+        document.getElementById("six").disabled = true;
+    }
+   
+}
+    </script>
+</head>
+<h2>@ViewBag.text</h2>
+
+@using (Html.BeginForm("RegistrationAdd", "User", FormMethod.Post))
+{
+
+        <div class="one">
+            <form>
+                <table>
+                    
+                    <tr>
+                        <td>
+                           
+                            Vehicle Number:
+                        </td>
+                        <td>
+                            
+                                @if (ViewBag.toEdit == null)
+
+                                { @Html.TextBoxFor(m => m.VehicleNumber, Model.VehicleNumber, new { required = "required", pattern = "[A-Z]{2} [[0-9]{2} [A-Z]{1} [0-9]{4}", title = "Vehicle Number must be of format KL 22 C 5555" });
+                                   }
+                                else
+                                {
+                                    @Html.TextBoxFor(m => m.VehicleNumber,Model.VehicleNumber, new { required = "required", pattern = "[A-Z]{2} [[0-9]{2} [A-Z]{1} [0-9]{4}", title = "Vehicle Number must be of format KL 22 C 5555", disabled = "disabled" });
+                                      } *                                 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Vehicle Name:
+                        </td>
+                        <td>
+                             @if (ViewBag.toEdit == null)
+                             {@Html.DropDownListFor(m => m.VehicleNameId, Model.NameList, new { selected = Model.VehicleName })
+                             }
+                             else
+                             {@Html.DropDownListFor(m => m.VehicleNameId, Model.NameList, new { selected = Model.VehicleName, disabled = "disabled" })
+                             }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Are you a registered user:
+                        </td>
+                        <td>
+                            <input type="checkbox" id="isexisting" name="isexisting" value="isexisting" onchange=check() />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Colour:
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Colour, Model.Colour, new { required = "required" })*
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Chasis Number:
+                        </td>
+                        <td>
+                             @if (ViewBag.toEdit == null)
+                             {
+                            @Html.TextBoxFor(m => m.ChasisNumber, Model.ChasisNumber, new { required = "required" });
+                              }
+                             else
+                             {
+                                  @Html.TextBoxFor(m => m.ChasisNumber, Model.ChasisNumber, new { required = "required",disabled="disabled" });
+                             }*
+                        </td>
+                    </tr>
+                  
+                    <tr>
+                        <td>
+                            Owner Name:
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.OwnerName, Model.OwnerName, new { required = "required" ,id="five"})*
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Owner Name:
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(m => m.OwnerName, Model.OwnerList,new { required = "required", id = "six",disabled="disabled" })*
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Address:
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.Address, Model.Address, new { required = "required", id = "three" })*
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Country:
+                        </td>
+                        <td>
+                            
+                            @Html.DropDownListFor(m => m.CountryId, Model.CountryList,new { id = "four", selected = Model.VehicleName})
+                        </td>
+                    </tr>
+                   
+         
+                </table>
+
+                 &#160 &#160  &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 <input type="submit" name="submit" value=@ViewBag.button />
+
+                
+
+            </form>
+        </div>
+        }
+        <p>Note:Fields marked * are mandatory.</p>
+
+    
